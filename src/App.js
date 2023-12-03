@@ -16,7 +16,6 @@ export default function App() {
     counter = counter + 1;
 
     document.getElementById('userInput').value = "";
-    console.log(tasks)
   }
 
   return (
@@ -24,6 +23,21 @@ export default function App() {
       <h1>TODO LIST</h1>
       <input id="userInput" placeholder="Add a new to do"></input>
       <button onClick={addTask}>Add</button>
+      <TodoList taskList={tasks} />
     </div>
   );
+}
+
+function TodoList({ taskList }) {
+  console.log(taskList)
+  return (
+    <ul>
+      {taskList.map((task) => 
+        <li key={task.id}>
+          <button id={task.id}></button>
+          <span>{task.name}</span>
+        </li>
+      )}
+    </ul>
+  )
 }
