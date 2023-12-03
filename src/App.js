@@ -41,11 +41,11 @@ export default function App() {
 }
 
 function TodoList({ list, setList, category }) {
-  function removeTask(id) {
-    let remainingTasks = list.filter((task) => {
-      return task.id !== id;
+  function removeTaskorItem(id) {
+    let remainingTasksOrItems = list.filter((taskOrItem) => {
+      return taskOrItem.id !== id;
     })
-    setList(remainingTasks)
+    setList(remainingTasksOrItems)
   }
   return (
     <ul className="todoList">
@@ -53,7 +53,7 @@ function TodoList({ list, setList, category }) {
         if (listItem.category === category) {
           return (
             <li key={listItem.id} className="task">
-              <button className="checkbox" id={listItem.id} onClick={() => removeTask(listItem.id)}></button>
+              <button className="checkbox" id={listItem.id} onClick={() => removeTaskorItem(listItem.id)}></button>
               <span>{listItem.name}</span>
             </li>
           );
