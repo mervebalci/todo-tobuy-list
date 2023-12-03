@@ -50,7 +50,7 @@ function TodoList({ list, setList, category }) {
   return (
     <ul className="todoList">
       {list.map((listItem) => {
-        if (listItem.category === category) {
+        if (listItem.category === category || category === "") {
           return (
             <li key={listItem.id} className="task">
               <button className="checkbox" id={listItem.id} onClick={() => removeTaskorItem(listItem.id)}></button>
