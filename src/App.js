@@ -4,14 +4,14 @@ import { useState } from 'react';
 let counter = 0;
 
 export default function App() {
-  const[tasks, setTasks] = useState([]);
+  const[list, setList] = useState([]);
 
-  function addTask() {
+  function addTaskOrItem(category) {
     const userInput = document.getElementById('userInput').value;
 
-    const task = {id: counter, name: userInput};
+    const data = {id: counter, name: userInput, category: category};
 
-    setTasks([...tasks, task]);
+    setList([...list, data]);
 
     counter = counter + 1;
 
@@ -20,20 +20,27 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>TODO LIST</h1>
-      <input id="userInput" placeholder="Add a new to do"></input>
-      <button className="addButton" onClick={addTask}>Add</button>
-      <TodoList taskList={tasks} setTasks={setTasks} />
+      <h1>TO DO/BUY LIST</h1>
+      <div>
+        <input id="userInput" placeholder="Add a new to do/buy..."></input>
+        <button id="addTask" onClick={() => addTaskOrItem("task")}>To Do</button>
+        <button id="addItem" onClick={() => addTaskOrItem("item")}>To Buy</button>
+      </div>
+      <div>
+        <button id="showTask">To Do List</button>
+        <button id="showItem">To Buy List</button>
+      </div>
+      <TodoList taskList={list} setList={setList} />
     </div>
   );
 }
 
-function TodoList({ taskList, setTasks }) {
+function TodoList({ taskList, setList }) {
   function removeTask(id) {
     let remainingTasks = taskList.filter((task) => {
       return task.id !== id;
     })
-    setTasks(remainingTasks)
+    setList(remainingTasks)
   }
   return (
     <ul className="todoList">
