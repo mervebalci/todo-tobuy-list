@@ -82,6 +82,54 @@ h1 {
   background-color: yellow;
 }
 
+#showTask {
+  padding: 4px 19px;
+  margin: 10px 0px 10px 10px;
+  font-size: 3.2vw;
+  color: rgb(66, 32, 190);
+  background-color: yellow;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 3px;
+  border-radius: 13px;
+}
+
+#showTask:hover {
+  padding: 4px 19px;
+  margin: 10px 0px 10px 10px;
+  font-size: 3.2vw;
+  color: yellow;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 3px;
+  border-radius: 13px;
+  background-color: rgb(66, 32, 190);
+}
+
+#showItem {
+  padding: 4px 19px;
+  margin: 10px 0px 10px 10px;
+  font-size: 3.2vw;
+  color: rgb(66, 32, 190);
+  background-color: yellow;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 3px;
+  border-radius: 13px;
+}
+
+#showItem:hover {
+  padding: 4px 19px;
+  margin: 10px 0px 10px 10px;
+  font-size: 3.2vw;
+  color: yellow;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 3px;
+  border-radius: 13px;
+  background-color: rgb(66, 32, 190);
+}
+
 .todoList {
   align-items: center;
   text-align: center;

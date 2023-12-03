@@ -5,6 +5,7 @@ let counter = 0;
 
 export default function App() {
   const[list, setList] = useState([]);
+  const[category, setCategory] = useState("");
 
   function addTaskOrItem(category) {
     const userInput = document.getElementById('userInput').value;
@@ -18,6 +19,10 @@ export default function App() {
     document.getElementById('userInput').value = "";
   }
 
+  function showTaskOrItem(category) {
+    setCategory(category);
+  }
+ 
   return (
     <div className="App">
       <h1>TO DO/BUY LIST</h1>
@@ -27,29 +32,35 @@ export default function App() {
         <button id="addItem" onClick={() => addTaskOrItem("item")}>To Buy</button>
       </div>
       <div>
-        <button id="showTask">To Do List</button>
-        <button id="showItem">To Buy List</button>
+        <button id="showTask" onClick={() => showTaskOrItem("task")}>To Do List</button>
+        <button id="showItem" onClick={() => showTaskOrItem("item")}>To Buy List</button>
       </div>
-      <TodoList taskList={list} setList={setList} />
+      <TodoList list={list} setList={setList} category={category} />
     </div>
   );
 }
 
-function TodoList({ taskList, setList }) {
+function TodoList({ list, setList, category }) {
   function removeTask(id) {
-    let remainingTasks = taskList.filter((task) => {
+    let remainingTasks = list.filter((task) => {
       return task.id !== id;
     })
     setList(remainingTasks)
   }
   return (
     <ul className="todoList">
-      {taskList.map((task) => 
-        <li key={task.id} className="task">
-          <button className="checkbox" id={task.id} onClick={() => removeTask(task.id)}></button>
-          <span>{task.name}</span>
-        </li>
-      )}
+      {list.map((listItem) => {
+        if (listItem.category === category) {
+          return (
+            <li key={listItem.id} className="task">
+              <button className="checkbox" id={listItem.id} onClick={() => removeTask(listItem.id)}></button>
+              <span>{listItem.name}</span>
+            </li>
+          );
+        } else {
+          return null;
+        }
+      })}
     </ul>
   )
 }
