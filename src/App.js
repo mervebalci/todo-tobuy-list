@@ -5,9 +5,9 @@ let counter = 0;
 
 export default function App() {
   const[list, setList] = useState([]);
-  const[category, setCategory] = useState("");
+  const[category, setCategory] = useState("task");
 
-  function addTaskOrItem(category) {
+  function addTaskOrItem() {
     const userInput = document.getElementById('userInput').value;
 
     const data = {id: counter, name: userInput, category: category};
@@ -27,9 +27,8 @@ export default function App() {
     <div className="App">
       <h1>TO DO/BUY LIST</h1>
       <div>
-        <input id="userInput" placeholder="Add a new to do/buy..."></input>
-        <button id="addTask" onClick={() => addTaskOrItem("task")}>To Do</button>
-        <button id="addItem" onClick={() => addTaskOrItem("item")}>To Buy</button>
+        <input id="userInput" placeholder={"Add a new " + category}></input>
+        <button id="addTask" onClick={addTaskOrItem}>Add</button>
       </div>
       <div>
         <button id="showTask" onClick={() => showTaskOrItem("task")}>To Do List</button>
