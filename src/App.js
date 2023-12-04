@@ -4,13 +4,13 @@ import { useState } from 'react';
 let counter = 0;
 
 export default function App() {
-  const[list, setList] = useState([]);
-  const[category, setCategory] = useState("task");
+  const [list, setList] = useState([]);
+  const [category, setCategory] = useState("");
 
   function addTaskOrItem() {
     const userInput = document.getElementById('userInput').value;
 
-    const data = {id: counter, name: userInput, category: category};
+    const data = { id: counter, name: userInput, category: category };
 
     setList([...list, data]);
 
@@ -22,19 +22,24 @@ export default function App() {
   function showTaskOrItem(category) {
     setCategory(category);
   }
- 
+
   return (
     <div className="App">
-      <h1>TO DO/BUY LIST</h1>
-      <div>
-        <input id="userInput" placeholder={"Add a new " + category}></input>
-        <button id="addTask" onClick={addTaskOrItem}>Add</button>
-      </div>
-      <div>
-        <button id="showTask" onClick={() => showTaskOrItem("task")}>To Do List</button>
-        <button id="showItem" onClick={() => showTaskOrItem("item")}>To Buy List</button>
-      </div>
-      <TodoList list={list} setList={setList} category={category} />
+      <h1>REMINDER</h1>
+      <button id="newList">Add a new list</button>
+      {category &&
+        <div>
+          <div>
+            <input id="userInput" placeholder={"Add a new " + category}></input>
+            <button id="addTask" onClick={addTaskOrItem}>Add</button>
+          </div>
+          <div>
+            <button id="showTask" onClick={() => showTaskOrItem("task")}>To Do List</button>
+            <button id="showItem" onClick={() => showTaskOrItem("item")}>To Buy List</button>
+          </div>
+          <TodoList list={list} setList={setList} category={category} />
+        </div>
+      }
     </div>
   );
 }
