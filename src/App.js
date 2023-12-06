@@ -4,7 +4,7 @@ import { useState } from 'react';
 let counter = 0;
 
 export default function App() {
-  const [list, setList] = useState([]);
+  const [items, setItems] = useState([]);
   const [category, setCategory] = useState([]);
 
   function addNewCategory() {
@@ -16,59 +16,58 @@ export default function App() {
     console.log(category)
   }
 
-  function addTaskOrItem() {
-    const userInput = document.getElementById('userInput').value;
+  function addNewItem() {
+    const userInput = document.getElementById('item').value;
 
-    const data = { id: counter, name: userInput, category: category };
+    const item = { id: counter, name: userInput, category: category };
 
-    setList([...list, data]);
+    setItems([...items, item]);
 
     counter = counter + 1;
 
-    document.getElementById('userInput').value = "";
+    document.getElementById('item').value = "";
   }
 
-  function showTaskOrItem(category) {
+  function showItem(category) {
     setCategory(category);
   }
 
   return (
     <div className="App">
       <h1>REMINDER</h1>
-      <input id="category" placeholder="Create a new category"></input>
+      <input id="inputCategory" placeholder="Create a new category"></input>
       <button id="addCategory" onClick={addNewCategory}>Add</button>
-      {category === "" &&
+      {category &&
         <div>
           <div>
-            <input id="userInput" placeholder="Add a new item"></input>
-            <button id="addTask" onClick={addTaskOrItem}>Add</button>
+            <input id="inputItem" placeholder="Add a new item"></input>
+            <button id="addItem" onClick={addNewItem}>Add</button>
           </div>
           <div>
-            <button id="showTask" onClick={() => showTaskOrItem("task")}>To Do List</button>
-            <button id="showItem" onClick={() => showTaskOrItem("item")}>To Buy List</button>
+            <button id="showItem" onClick={() => showItem("item")}>To Buy List</button>
           </div>
-          <TodoList list={list} setList={setList} category={category} />
+          <ItemList items={items} setItems={setItems} category={category} />
         </div>
       }
     </div>
   );
 }
 
-function TodoList({ list, setList, category }) {
-  function removeTaskorItem(id) {
-    let remainingTasksOrItems = list.filter((taskOrItem) => {
-      return taskOrItem.id !== id;
+function ItemList({ items, setItems, category }) {
+  function removeItem(id) {
+    let remainingItems = items.filter((item) => {
+      return item.id !== id;
     })
-    setList(remainingTasksOrItems)
+    setItems(remainingItems)
   }
   return (
-    <ul className="todoList">
-      {list.map((listItem) => {
-        if (listItem.category === category || category === "") {
+    <ul className="itemList">
+      {items.map((item) => {
+        if (item.category === category || category === "") {
           return (
-            <li key={listItem.id} className="task">
-              <button className="checkbox" id={listItem.id} onClick={() => removeTaskorItem(listItem.id)}></button>
-              <span>{listItem.name}</span>
+            <li key={item.id} className="item">
+              <button className="checkbox" id={item.id} onClick={() => removeItem(item.id)}></button>
+              <span>{item.name}</span>
             </li>
           );
         } else {

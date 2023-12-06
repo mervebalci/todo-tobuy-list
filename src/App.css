@@ -9,7 +9,15 @@
   width: 100%;
 }
 
-#category {
+h1 {
+  font-size: 10vw;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: -2px;
+  color: yellow;
+}
+
+#inputCategory {
   color: rgb(39, 20, 109);
   background-color: rgb(255, 255, 247);
   border-width: 3px;
@@ -21,7 +29,7 @@
   margin-bottom: 64px;
 }
 
-#category::placeholder {
+#inputCategory::placeholder {
   color: rgba(131, 122, 164, 0.725);
 }
 
@@ -37,16 +45,7 @@
   border-radius: 13px;
 }
 
-h1 {
-  font-size: 10vw;
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: -2px;
-  color: yellow;
-  padding-bottom: 24px;
-}
-
-#userInput {
+#inputItem {
   color: rgb(39, 20, 109);
   background-color: rgb(255, 255, 247);
   border-width: 3px;
@@ -58,34 +57,8 @@ h1 {
   margin-bottom: 64px;
 }
 
-#userInput::placeholder {
+#inputItem::placeholder {
   color: rgba(131, 122, 164, 0.725);
-}
-
-#addTask {
-  padding: 8px 13px;
-  margin: 10px 0px 10px 10px;
-  font-size: 3.2vw;
-  text-transform: capitalize;
-  color: yellow;
-  background-color: rgb(66, 32, 190);
-  border-style: solid;
-  border-color: yellow;
-  border-width: 3px;
-  border-radius: 13px;
-}
-
-#addTask:hover {
-  padding: 8px 13px;
-  margin: 10px 0px 10px 10px;
-  font-size: 3.2vw;
-  text-transform: capitalize;
-  color: rgb(66, 32, 190);
-  border-style: solid;
-  border-color: yellow;
-  border-width: 3px;
-  border-radius: 13px;
-  background-color: yellow;
 }
 
 #addItem {
@@ -114,32 +87,6 @@ h1 {
   background-color: yellow;
 }
 
-#showTask {
-  padding: 4px 19px;
-  margin: 10px 0px 10px 10px;
-  font-size: 3.2vw;
-  text-transform: capitalize;
-  color: rgb(66, 32, 190);
-  background-color: yellow;
-  border-style: solid;
-  border-color: yellow;
-  border-width: 3px;
-  border-radius: 13px;
-}
-
-#showTask:hover {
-  padding: 4px 19px;
-  margin: 10px 0px 10px 10px;
-  font-size: 3.2vw;
-  text-transform: capitalize;
-  color: yellow;
-  border-style: solid;
-  border-color: yellow;
-  border-width: 3px;
-  border-radius: 13px;
-  background-color: rgb(66, 32, 190);
-}
-
 #showItem {
   padding: 4px 19px;
   margin: 10px 0px 10px 10px;
@@ -166,7 +113,7 @@ h1 {
   background-color: rgb(66, 32, 190);
 }
 
-.todoList {
+.itemList {
   align-items: center;
   text-align: center;
   max-width: fit-content;
@@ -178,7 +125,7 @@ h1 {
   word-spacing: 2px;
 }
 
-.task {
+.item {
   margin-top: 10px;
   font-size: 3.5vw;
   text-align: left;
