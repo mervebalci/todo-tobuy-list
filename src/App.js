@@ -9,9 +9,8 @@ export default function App() {
 
   function addNewCategory() {
     const newCategory = document.getElementById('inputCategory').value;
-    setCategory([...category, newCategory])
+    setCategory([...category, newCategory]);
     document.getElementById('inputCategory').value = "";
-    console.log(category)
   }
 
   function addNewItem() {
@@ -29,28 +28,35 @@ export default function App() {
       <button id="addCategory" onClick={addNewCategory}>Add</button>
       {category &&
         <div>
-          <CategoryList category={category} />
-          <ItemList items={items} setItems={setItems} category={category} />
+          <CategoryList category={category} setCategory={setCategory} />
           <div>
             <input id="inputItem" placeholder="Add a new item"></input>
             <button id="addItem" onClick={addNewItem}>Add</button>
           </div>
+          <ItemList items={items} setItems={setItems} category={category} />
         </div>
       }
     </div>
   );
 }
 
-function CategoryList({ category }) {
+function CategoryList({ category, setCategory }) {
+  console.log(category)
+  function selectCategory(categoryName) {
+    let selectedCategory = category.filter((categ) =>{
+      return categ === categoryName
+    });
+    setCategory(...category, selectedCategory)
+    console.log(selectedCategory)
+    console.log(category)
+  }
   return (
     <ul className="categoryList">
-      {category.map((eachCategory) => {
-        return (
-          <li key={eachCategory}>
-            <button id="showCategory">{eachCategory} List</button>
-          </li>
-        )
-      })}
+      {category.map((categoryName) => 
+        <li key={categoryName}>
+          <button id="showCategory" onClick={() => selectCategory(categoryName)}>{categoryName} List</button>
+        </li>
+      )}
     </ul>
   )
 }

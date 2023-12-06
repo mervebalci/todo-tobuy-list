@@ -35,7 +35,7 @@ h1 {
 
 #addCategory {
   padding: 8px 13px;
-  margin: 10px 0px 10px 10px;
+  margin: 10px 0px 19px 10px;
   font-size: 3.2vw;
   color: yellow;
   background-color: rgb(66, 32, 190);
@@ -47,11 +47,14 @@ h1 {
 
 .categoryList {
   list-style-type: none;
+  text-align: left;
+  max-width: fit-content;
+  margin-bottom: 40px;
 }
 
 #showCategory {
-  padding: 4px 19px;
-  margin: 5px 0px 5px 10px;
+  padding-bottom: 2px;
+  margin: 5px 0px 5px 0px;
   font-size: 3.6vw;
   text-transform: capitalize;
   color: yellow;
@@ -60,8 +63,8 @@ h1 {
 }
 
 #showCategory:hover {
-  padding: 4px 19px;
-  margin: 5px 0px 5px 10px;
+  padding-bottom: 2px;
+  margin: 5px 0px 5px 0px;
   font-size: 3.6vw;
   text-transform: capitalize;
   color: yellow;
@@ -78,7 +81,8 @@ h1 {
   border-radius: 13px;
   padding: 8px 13px;
   font-size: 3.2vw;
-  margin-bottom: 64px;
+  margin-top: 22px;
+  margin-bottom: 22px;
 }
 
 #inputItem::placeholder {
@@ -87,7 +91,7 @@ h1 {
 
 #addItem {
   padding: 8px 13px;
-  margin: 10px 0px 10px 10px;
+  margin: 30px 0px 0px 10px;
   font-size: 3.2vw;
   text-transform: capitalize;
   color: yellow;
@@ -100,7 +104,7 @@ h1 {
 
 #addItem:hover {
   padding: 8px 13px;
-  margin: 10px 0px 10px 10px;
+  margin: 30px 0px 0px 10px;
   font-size: 3.2vw;
   text-transform: capitalize;
   color: rgb(66, 32, 190);
@@ -124,7 +128,7 @@ h1 {
 }
 
 .item {
-  margin-top: 10px;
+  margin-bottom: 5px;
   font-size: 3.5vw;
   text-align: left;
 }
@@ -138,7 +142,7 @@ h1 {
   height: 3.5vw;
   width: 3.5vw;
   margin-right: 10px;
-  margin-top: 2px;
+  margin-top: 0px;
 }
 
 .checkbox:hover {
