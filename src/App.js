@@ -8,28 +8,18 @@ export default function App() {
   const [category, setCategory] = useState([]);
 
   function addNewCategory() {
-    const creatingCategory = document.getElementById('category').value;
-    setCategory([...category, creatingCategory])
-
-    document.getElementById('category').value = "";
-
+    const newCategory = document.getElementById('inputCategory').value;
+    setCategory([...category, newCategory])
+    document.getElementById('inputCategory').value = "";
     console.log(category)
   }
 
   function addNewItem() {
-    const userInput = document.getElementById('item').value;
-
-    const item = { id: counter, name: userInput, category: category };
-
-    setItems([...items, item]);
-
+    const userInput = document.getElementById('inputItem').value;
+    const newItem = { id: counter, name: userInput, category: category };
     counter = counter + 1;
-
-    document.getElementById('item').value = "";
-  }
-
-  function showItem(category) {
-    setCategory(category);
+    setItems([...items, newItem]);
+    document.getElementById('inputItem').value = "";
   }
 
   return (
@@ -39,18 +29,30 @@ export default function App() {
       <button id="addCategory" onClick={addNewCategory}>Add</button>
       {category &&
         <div>
+          <CategoryList category={category} />
+          <ItemList items={items} setItems={setItems} category={category} />
           <div>
             <input id="inputItem" placeholder="Add a new item"></input>
             <button id="addItem" onClick={addNewItem}>Add</button>
           </div>
-          <div>
-            <button id="showItem" onClick={() => showItem("item")}>To Buy List</button>
-          </div>
-          <ItemList items={items} setItems={setItems} category={category} />
         </div>
       }
     </div>
   );
+}
+
+function CategoryList({ category }) {
+  return (
+    <ul className="categoryList">
+      {category.map((eachCategory) => {
+        return (
+          <li key={eachCategory}>
+            <button id="showCategory">{eachCategory} List</button>
+          </li>
+        )
+      })}
+    </ul>
+  )
 }
 
 function ItemList({ items, setItems, category }) {

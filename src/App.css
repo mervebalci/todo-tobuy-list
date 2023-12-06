@@ -26,7 +26,7 @@ h1 {
   border-radius: 13px;
   padding: 8px 13px;
   font-size: 3.2vw;
-  margin-bottom: 64px;
+  margin-bottom: 19px;
 }
 
 #inputCategory::placeholder {
@@ -43,6 +43,30 @@ h1 {
   border-color: yellow;
   border-width: 3px;
   border-radius: 13px;
+}
+
+.categoryList {
+  list-style-type: none;
+}
+
+#showCategory {
+  padding: 4px 19px;
+  margin: 5px 0px 5px 10px;
+  font-size: 3.6vw;
+  text-transform: capitalize;
+  color: yellow;
+  background-color: rgb(66, 32, 190);
+  border-style: none;
+}
+
+#showCategory:hover {
+  padding: 4px 19px;
+  margin: 5px 0px 5px 10px;
+  font-size: 3.6vw;
+  text-transform: capitalize;
+  color: yellow;
+  border-style: none;
+  cursor: pointer;
 }
 
 #inputItem {
@@ -85,32 +109,6 @@ h1 {
   border-width: 3px;
   border-radius: 13px;
   background-color: yellow;
-}
-
-#showItem {
-  padding: 4px 19px;
-  margin: 10px 0px 10px 10px;
-  font-size: 3.2vw;
-  text-transform: capitalize;
-  color: rgb(66, 32, 190);
-  background-color: yellow;
-  border-style: solid;
-  border-color: yellow;
-  border-width: 3px;
-  border-radius: 13px;
-}
-
-#showItem:hover {
-  padding: 4px 19px;
-  margin: 10px 0px 10px 10px;
-  font-size: 3.2vw;
-  text-transform: capitalize;
-  color: yellow;
-  border-style: solid;
-  border-color: yellow;
-  border-width: 3px;
-  border-radius: 13px;
-  background-color: rgb(66, 32, 190);
 }
 
 .itemList {
