@@ -5,7 +5,16 @@ let counter = 0;
 
 export default function App() {
   const [list, setList] = useState([]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState([]);
+
+  function addNewCategory() {
+    const creatingCategory = document.getElementById('category').value;
+    setCategory([...category, creatingCategory])
+
+    document.getElementById('category').value = "";
+
+    console.log(category)
+  }
 
   function addTaskOrItem() {
     const userInput = document.getElementById('userInput').value;
@@ -26,11 +35,12 @@ export default function App() {
   return (
     <div className="App">
       <h1>REMINDER</h1>
-      <button id="newList">Add a new list</button>
-      {category &&
+      <input id="category" placeholder="Create a new category"></input>
+      <button id="addCategory" onClick={addNewCategory}>Add</button>
+      {category === "" &&
         <div>
           <div>
-            <input id="userInput" placeholder={"Add a new " + category}></input>
+            <input id="userInput" placeholder="Add a new item"></input>
             <button id="addTask" onClick={addTaskOrItem}>Add</button>
           </div>
           <div>

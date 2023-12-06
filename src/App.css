@@ -9,7 +9,23 @@
   width: 100%;
 }
 
-#newList {
+#category {
+  color: rgb(39, 20, 109);
+  background-color: rgb(255, 255, 247);
+  border-width: 3px;
+  border-style: solid;
+  border-color: yellow;
+  border-radius: 13px;
+  padding: 8px 13px;
+  font-size: 3.2vw;
+  margin-bottom: 64px;
+}
+
+#category::placeholder {
+  color: rgba(131, 122, 164, 0.725);
+}
+
+#addCategory {
   padding: 8px 13px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
@@ -50,6 +66,7 @@ h1 {
   padding: 8px 13px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: yellow;
   background-color: rgb(66, 32, 190);
   border-style: solid;
@@ -62,6 +79,7 @@ h1 {
   padding: 8px 13px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: rgb(66, 32, 190);
   border-style: solid;
   border-color: yellow;
@@ -74,6 +92,7 @@ h1 {
   padding: 8px 13px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: yellow;
   background-color: rgb(66, 32, 190);
   border-style: solid;
@@ -86,6 +105,7 @@ h1 {
   padding: 8px 13px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: rgb(66, 32, 190);
   border-style: solid;
   border-color: yellow;
@@ -98,6 +118,7 @@ h1 {
   padding: 4px 19px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: rgb(66, 32, 190);
   background-color: yellow;
   border-style: solid;
@@ -110,6 +131,7 @@ h1 {
   padding: 4px 19px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: yellow;
   border-style: solid;
   border-color: yellow;
@@ -122,6 +144,7 @@ h1 {
   padding: 4px 19px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: rgb(66, 32, 190);
   background-color: yellow;
   border-style: solid;
@@ -134,6 +157,7 @@ h1 {
   padding: 4px 19px;
   margin: 10px 0px 10px 10px;
   font-size: 3.2vw;
+  text-transform: capitalize;
   color: yellow;
   border-style: solid;
   border-color: yellow;
@@ -147,10 +171,10 @@ h1 {
   text-align: center;
   max-width: fit-content;
   list-style-type: none;
+  text-transform: capitalize;
   color: rgb(231, 230, 245);
   font-weight: normal;
   letter-spacing: 0.5px;
-  text-transform: capitalize;
   word-spacing: 2px;
 }
 
