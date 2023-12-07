@@ -6,6 +6,7 @@ let counter = 0;
 export default function App() {
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("")
 
   function addNewCategory() {
     const newCategory = document.getElementById('inputCategory').value;
@@ -13,12 +14,14 @@ export default function App() {
     document.getElementById('inputCategory').value = "";
   }
 
-  function addNewItem() {
+  function addNewItem(selectedCategory) {
+    console.log(selectedCategory)
     const userInput = document.getElementById('inputItem').value;
-    const newItem = { id: counter, name: userInput, category: category };
+    const newItem = { id: counter, name: userInput, category: selectedCategory };
     counter = counter + 1;
     setItems([...items, newItem]);
     document.getElementById('inputItem').value = "";
+    console.log(items)
   }
 
   return (
@@ -28,27 +31,24 @@ export default function App() {
       <button id="addCategory" onClick={addNewCategory}>Add</button>
       {category &&
         <div>
-          <CategoryList category={category} setCategory={setCategory} />
+          <CategoryList category={category} setSelectedCategory={setSelectedCategory} />
           <div>
             <input id="inputItem" placeholder="Add a new item"></input>
-            <button id="addItem" onClick={addNewItem}>Add</button>
+            <button id="addItem" onClick={() => addNewItem(selectedCategory)}>Add</button>
           </div>
-          <ItemList items={items} setItems={setItems} category={category} />
+          <ItemList items={items} setItems={setItems} category={category} selectedCategory={selectedCategory} />
         </div>
       }
     </div>
   );
 }
 
-function CategoryList({ category, setCategory }) {
-  console.log(category)
+function CategoryList({ category, setSelectedCategory }) {
   function selectCategory(categoryName) {
-    let selectedCategory = category.filter((categ) =>{
+    let selectedCategory = category.filter((categ) => {
       return categ === categoryName
     });
-    setCategory(...category, selectedCategory)
-    console.log(selectedCategory)
-    console.log(category)
+    setSelectedCategory(selectedCategory)
   }
   return (
     <ul className="categoryList">
@@ -61,7 +61,7 @@ function CategoryList({ category, setCategory }) {
   )
 }
 
-function ItemList({ items, setItems, category }) {
+function ItemList({ items, setItems, category, selectedCategory }) {
   function removeItem(id) {
     let remainingItems = items.filter((item) => {
       return item.id !== id;
@@ -71,7 +71,7 @@ function ItemList({ items, setItems, category }) {
   return (
     <ul className="itemList">
       {items.map((item) => {
-        if (item.category === category || category === "") {
+        if (item.category === selectedCategory || category === "") {
           return (
             <li key={item.id} className="item">
               <button className="checkbox" id={item.id} onClick={() => removeItem(item.id)}></button>
