@@ -29,7 +29,7 @@ export default function App() {
       <h1>REMINDER</h1>
       <input id="inputCategory" placeholder="Create a new category"></input>
       <button id="addCategory" onClick={addNewCategory}>Add</button>
-      {category &&
+      {category !== 0 &&
         <div>
           <CategoryList category={category} setSelectedCategory={setSelectedCategory} />
           <div>
@@ -45,11 +45,10 @@ export default function App() {
 
 function CategoryList({ category, setSelectedCategory }) {
   function selectCategory(categoryName) {
-    let selectedCategory = category.filter((categ) => {
-      return categ === categoryName
-    });
-    setSelectedCategory(selectedCategory)
+    setSelectedCategory(categoryName)
+    console.log(categoryName)
   }
+
   return (
     <ul className="categoryList">
       {category.map((categoryName) => 
