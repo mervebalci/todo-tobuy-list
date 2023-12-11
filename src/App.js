@@ -2,8 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { CategoryList } from './components/CategoryList.js';
 import { ItemList } from './components/ItemList';
-
-let counter = 0;
+import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -19,8 +18,7 @@ export default function App() {
   function addNewItem(selectedCategory) {
     console.log(selectedCategory)
     const userInput = document.getElementById('inputItem').value;
-    const newItem = { id: counter, name: userInput, category: selectedCategory };
-    counter = counter + 1;
+    const newItem = { id: uuidv4(), name: userInput, category: selectedCategory };
     setItems([...items, newItem]);
     document.getElementById('inputItem').value = "";
     console.log(items)
