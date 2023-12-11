@@ -1,5 +1,7 @@
 import './App.css';
 import { useState } from 'react';
+import { CategoryList } from './components/CategoryList.js';
+import { ItemList } from './components/ItemList';
 
 let counter = 0;
 
@@ -27,9 +29,9 @@ export default function App() {
   return (
     <div className="App">
       <h1>REMINDER</h1>
-      <input id="inputCategory" placeholder="Create a new category"></input>
-      <button id="addCategory" onClick={addNewCategory}>Add</button>
-      {category !== 0 &&
+      <input type="text" id="inputCategory" placeholder="Create a new category"></input>
+      <button type="submit" id="addCategory" onClick={addNewCategory}>Add</button>
+      {category.length !== 0 &&
         <div>
           <CategoryList category={category} setSelectedCategory={setSelectedCategory} />
           <div>
@@ -41,46 +43,4 @@ export default function App() {
       }
     </div>
   );
-}
-
-function CategoryList({ category, setSelectedCategory }) {
-  function selectCategory(categoryName) {
-    setSelectedCategory(categoryName)
-    console.log(categoryName)
-  }
-
-  return (
-    <ul className="categoryList">
-      {category.map((categoryName) => 
-        <li key={categoryName}>
-          <button id="showCategory" onClick={() => selectCategory(categoryName)}>{categoryName} List</button>
-        </li>
-      )}
-    </ul>
-  )
-}
-
-function ItemList({ items, setItems, category, selectedCategory }) {
-  function removeItem(id) {
-    let remainingItems = items.filter((item) => {
-      return item.id !== id;
-    })
-    setItems(remainingItems)
-  }
-  return (
-    <ul className="itemList">
-      {items.map((item) => {
-        if (item.category === selectedCategory || category === "") {
-          return (
-            <li key={item.id} className="item">
-              <button className="checkbox" id={item.id} onClick={() => removeItem(item.id)}></button>
-              <span>{item.name}</span>
-            </li>
-          );
-        } else {
-          return null;
-        }
-      })}
-    </ul>
-  )
 }

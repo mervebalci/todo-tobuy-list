@@ -1,3 +1,7 @@
+# About This App
+
+This project was created as a simple ToDo-ToBuy List. However, it changed in time to a simple reminder app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
